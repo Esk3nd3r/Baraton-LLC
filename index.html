@@ -69,6 +69,12 @@
     background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;
     font-size:1.15rem;
   }
+  .brand .brand-logo{display:flex;align-items:center;}
+  .brand .brand-logo img{
+    height:48px;max-width:200px;width:auto;object-fit:contain;display:block;
+  }
+  .brand-fallback{display:flex;align-items:center;gap:12px;}
+  .brand.has-logo .brand-fallback{display:none;}
   .brand .brand-name{display:flex;flex-direction:column;line-height:1.2;}
   .brand .brand-name strong{font-size:1.05rem;}
   .brand .brand-name span{font-size:.62rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);}
@@ -121,6 +127,11 @@
   .prod .ph img{width:100%;height:100%;object-fit:cover;display:block;}
   .prod .tag{position:absolute;left:14px;top:14px;background:rgba(23,52,72,.78);color:#fff;
     font-size:.68rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:5px 10px;border-radius:6px;}
+  .prod .tag.logo-tag{background:#fff;color:var(--accent-deep);
+    display:flex;align-items:center;justify-content:center;
+    min-width:64px;min-height:44px;padding:6px 10px;border-radius:6px;}
+  .prod .tag.logo-tag img{max-height:44px;max-width:140px;width:auto;height:auto;
+    object-fit:contain;display:block;}
   .prod .pad{padding:20px;}
   .prod h3{font-size:1.12rem;margin-bottom:6px;}
   .prod p{color:var(--muted);font-size:.92rem;}
@@ -224,10 +235,13 @@
   <header class="site-header">
     <div class="container header-inner">
       <a href="#top" class="brand" aria-label="Baraton Trade LLC home">
-        <span class="mark">B</span>
-        <span class="brand-name">
-          <strong>Baraton Trade</strong>
-          <span>Import &middot; Export</span>
+        <span class="brand-logo"><img src="src/baraton-logo.png" alt="Baraton Trade logo" onload="this.parentElement.parentElement.classList.add('has-logo')" onerror="this.style.display='none'"></span>
+        <span class="brand-fallback">
+          <span class="mark">B</span>
+          <span class="brand-name">
+            <strong>Baraton Trade</strong>
+            <span>Import &middot; Export</span>
+          </span>
         </span>
       </a>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
@@ -275,17 +289,17 @@
       <div class="prod-grid">
         <div class="prod">
           <div class="ph">
-            <span class="tag">Machinery</span>
-            <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=900&q=80" alt="Heavy rock drilling machinery at a mine site" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 700 400&quot;><rect width=&quot;700&quot; height=&quot;400&quot; fill=&quot;#9fb2be&quot;/></svg>'">
+            <span class="tag logo-tag"><img src="src/logo202306131651222101413-removebg-preview.png" alt="ZEGA logo" onerror="this.style.display='none'"></span>
+            <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=900&q=80" alt="Drill rig and construction equipment for hire" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 700 400&quot;><rect width=&quot;700&quot; height=&quot;400&quot; fill=&quot;#9fb2be&quot;/></svg>'">
           </div>
           <div class="pad">
-            <h3>Rock drilling machinery &amp; accessories</h3>
-            <p>Drilling rigs, bits and accessories for mining and construction — equipment you can trust on site.</p>
+            <h3>Machinery rental</h3>
+            <p>Drill rigs, air compressors and construction equipment from ZEGA supplied on flexible hire or sale, under Baraton Trade's partnership agreement — professionally maintained and ready when you need them.</p>
           </div>
         </div>
         <div class="prod">
           <div class="ph">
-            <span class="tag">Machinery</span>
+            <span class="tag logo-tag"><img src="logos/filtration-logo.png" alt="Filtration brand logo" onerror="this.style.display='none'"></span>
             <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=900&q=80" alt="Industrial machinery filter and components" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 700 400&quot;><rect width=&quot;700&quot; height=&quot;400&quot; fill=&quot;#b7ccda&quot;/></svg>'">
           </div>
           <div class="pad">
@@ -295,7 +309,7 @@
         </div>
         <div class="prod">
           <div class="ph">
-            <span class="tag">Technology</span>
+            <span class="tag logo-tag"><img src="logos/digital-logo.png" alt="Digital brand logo" onerror="this.style.display='none'"></span>
             <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=900&q=80" alt="Digital technology and data on a screen" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 700 400&quot;><rect width=&quot;700&quot; height=&quot;400&quot; fill=&quot;#a9c8dc&quot;/></svg>'">
           </div>
           <div class="pad">
@@ -305,7 +319,7 @@
         </div>
         <div class="prod">
           <div class="ph">
-            <span class="tag">Energy</span>
+            <span class="tag logo-tag"><img src="logos/petroleum-logo.png" alt="Petroleum brand logo" onerror="this.style.display='none'"></span>
             <img src="https://images.unsplash.com/photo-1504052434569-70ad5836ab65?auto=format&fit=crop&w=900&q=80" alt="Crude oil and petroleum industry" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 700 400&quot;><rect width=&quot;700&quot; height=&quot;400&quot; fill=&quot;#8ea8ba&quot;/></svg>'">
           </div>
           <div class="pad">
@@ -315,7 +329,7 @@
         </div>
         <div class="prod">
           <div class="ph">
-            <span class="tag">Property</span>
+            <span class="tag logo-tag"><img src="logos/real-estate-logo.png" alt="Real estate brand logo" onerror="this.style.display='none'"></span>
             <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=900&q=80" alt="Modern real estate building" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 700 400&quot;><rect width=&quot;700&quot; height=&quot;400&quot; fill=&quot;#7a9cb0&quot;/></svg>'">
           </div>
           <div class="pad">
@@ -325,17 +339,17 @@
         </div>
         <div class="prod">
           <div class="ph">
-            <span class="tag">Machinery</span>
-            <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=900&q=80" alt="Construction machinery for hire" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 700 400&quot;><rect width=&quot;700&quot; height=&quot;400&quot; fill=&quot;#9fb2be&quot;/></svg>'">
+            <span class="tag logo-tag"><img src="src/OIP-2338479440-removebg-preview.png" alt="Hunan New Diamond logo" onerror="this.style.display='none'"></span>
+            <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=900&q=80" alt="Rock drilling machinery at a mine site" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 700 400&quot;><rect width=&quot;700&quot; height=&quot;400&quot; fill=&quot;#9fb2be&quot;/></svg>'">
           </div>
           <div class="pad">
-            <h3>Machinery rental</h3>
-            <p>Heavy equipment available on flexible hire — well-maintained, well-supported, and ready when you need it.</p>
+            <h3>Rock drilling machinery &amp; accessories</h3>
+            <p>High-pressure down-the-hole impactors, DTH bits, drill pipes and rock drilling tools from Hunan New Diamond — available for rent or sale worldwide, and widely used in mining and water-well, geothermal and municipal projects.</p>
           </div>
         </div>
         <div class="prod">
           <div class="ph">
-            <span class="tag">Services</span>
+            <span class="tag logo-tag"><img src="logos/baraton-logo.png" alt="Baraton Trade logo" onerror="this.style.display='none'"></span>
             <img src="https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=900&q=80" alt="General trade and representation" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 700 400&quot;><rect width=&quot;700&quot; height=&quot;400&quot; fill=&quot;#6d8ba0&quot;/></svg>'">
           </div>
           <div class="pad">
@@ -354,7 +368,7 @@
       <span>Cornerstone Agri</span>
       <span>Meridian Grain Co.</span>
       <span>Northfields &amp; Sons</span>
-      <span>Alpine Metals</span>
+      <span><a href="https://www.youtube.com/alpinemetals" target="_blank" rel="noopener noreferrer">Alpine Metals</a></span>
       <span>Sterling Commodities</span>
       <span>Harbor Freight Lines</span>
       <span>Kelway Steelworks</span>
