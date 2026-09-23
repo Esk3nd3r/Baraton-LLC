@@ -150,6 +150,40 @@
   .prod .pad{padding:20px;}
   .prod h3{font-size:1.12rem;margin-bottom:6px;}
   .prod p{color:var(--muted);font-size:.92rem;}
+  .prod .more{font-size:.82rem;font-weight:600;color:var(--accent-deep);margin-top:14px;display:inline-flex;align-items:center;gap:6px;}
+  .prod .more::after{content:"\2192";transition:transform .18s ease;}
+  .prod:hover .more::after{transform:translateX(4px);}
+  .prod{position:relative;cursor:pointer;}
+  .prod::after{content:"";position:absolute;inset:0;border-radius:var(--radius);box-shadow:var(--shadow);
+    opacity:0;transition:opacity .18s ease;pointer-events:none;}
+  .prod:hover::after{opacity:1;}
+
+  /* Product detail modal */
+  .modal{position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;padding:20px;}
+  .modal .backdrop{position:absolute;inset:0;background:rgba(18,34,44,.6);}
+  .modal .dialog{
+    position:relative;width:min(760px,100%);max-height:90vh;overflow:auto;
+    background:var(--surface);border-radius:var(--radius);box-shadow:0 20px 60px rgba(10,20,28,.4);
+  }
+  .modal .dlg-img{position:relative;height:230px;background:var(--bg-deep);overflow:hidden;}
+  .modal .dlg-img img{width:100%;height:100%;object-fit:cover;display:block;}
+  .modal .dlg-img .tag{position:absolute;left:14px;top:14px;background:#fff;color:var(--accent-deep);
+    border:1px solid var(--line-strong);padding:5px 10px;border-radius:6px;font-size:.68rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;}
+  .modal .dlg-body{padding:26px 28px 30px;}
+  .modal .dlg-close{position:absolute;top:12px;right:12px;z-index:2;width:38px;height:38px;border-radius:50%;
+    border:1px solid rgba(255,255,255,.8);background:rgba(20,40,52,.5);color:#fff;font-size:1.2rem;line-height:1;cursor:pointer;}
+  .modal h3{font-size:1.5rem;margin-bottom:10px;}
+  .modal .dlg-lede{color:var(--muted);font-size:1.02rem;line-height:1.6;}
+  .modal .dlg-details{margin:20px 0 0;padding:18px 22px;background:var(--bg-deep);border-radius:var(--radius);}
+  .modal .dlg-details b{display:block;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-deep);margin-bottom:10px;}
+  .modal .dlg-details ul{list-style:none;}
+  .modal .dlg-details li{padding:8px 0;border-bottom:1px solid var(--line);color:var(--ink);font-size:.96rem;display:flex;gap:10px;}
+  .modal .dlg-details li:last-child{border-bottom:0;}
+  .modal .dlg-details li::before{content:"\2713";color:var(--accent);flex:none;font-weight:700;}
+  .modal .dlg-actions{margin-top:22px;display:flex;gap:12px;flex-wrap:wrap;}
+  .modal .dlg-actions .btn{flex:1;min-width:150px;}
+  .modal.close{display:none;}
+  body.modal-open{overflow:hidden;}
 
   /* ---------- Approach ---------- */
   .approach{background:var(--bg-deep);}
@@ -250,7 +284,7 @@
   <header class="site-header">
     <div class="container header-inner">
       <a href="#top" class="brand" aria-label="Baraton Trade LLC home">
-        <span class="brand-logo"><img src="src/baraton-logo.png" alt="Baraton Trade logo" onload="this.parentElement.parentElement.classList.add('has-logo')" onerror="this.style.display='none'"></span>
+        <span class="brand-logo"><img src="src/logo1-BUSou2XK.png" alt="Baraton Trade logo" onload="this.parentElement.parentElement.classList.add('has-logo')" onerror="this.style.display='none'"></span>
         <span class="brand-fallback">
           <span class="mark">B</span>
           <span class="brand-name">
@@ -309,7 +343,7 @@
         <p>Machinery, energy, technology and property — sourced, serviced and delivered with the same attention to quality and follow-through.</p>
       </div>
       <div class="prod-grid">
-        <div class="prod">
+        <div class="prod" data-details="Daily, weekly &amp; monthly hire terms|From ZEGA — reputable drill rigs &amp; air compressors|Fully serviced equipment with on-site support|Flexible plans sized to your project|Rental and purchase both available">
           <div class="ph">
             <span class="tag logo-tag"><img src="src/logo202306131651222101413-removebg-preview.png" alt="ZEGA logo" onerror="this.style.display='none'"></span>
             <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=900&q=80" alt="Drill rig and construction equipment for hire" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 700 400&quot;><rect width=&quot;700&quot; height=&quot;400&quot; fill=&quot;#9fb2be&quot;/></svg>'">
@@ -317,9 +351,10 @@
           <div class="pad">
             <h3>Machinery rental</h3>
             <p>Drill rigs, air compressors and construction equipment from ZEGA supplied on flexible hire or sale, under Baraton Trade's partnership agreement — professionally maintained and ready when you need them.</p>
+            <span class="more">Learn more</span>
           </div>
         </div>
-        <div class="prod">
+        <div class="prod" data-details="Air, oil &amp; fuel filtration systems|Keeps equipment running clean and reliable|Process &amp; hydraulic filtration options|Spare elements &amp; consumables supplied|Support for a wide range of machinery">
           <div class="ph">
             <span class="tag logo-tag"><img src="logos/filtration-logo.png" alt="Filtration brand logo" onerror="this.style.display='none'"></span>
             <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=900&q=80" alt="Industrial machinery filter and components" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 700 400&quot;><rect width=&quot;700&quot; height=&quot;400&quot; fill=&quot;#b7ccda&quot;/></svg>'">
@@ -327,9 +362,10 @@
           <div class="pad">
             <h3>Machinery filtration</h3>
             <p>Filtration solutions that keep your equipment running clean and reliable, whatever the working environment.</p>
+            <span class="more">Learn more</span>
           </div>
         </div>
-        <div class="prod">
+        <div class="prod" data-details="Trade &amp; logistics software and tools|Streamlines your day-to-day operations|Built around your existing workflow|Implementation, training &amp; support|Secure and scalable solutions">
           <div class="ph">
             <span class="tag logo-tag"><img src="logos/digital-logo.png" alt="Digital brand logo" onerror="this.style.display='none'"></span>
             <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=900&q=80" alt="Digital technology and data on a screen" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 700 400&quot;><rect width=&quot;700&quot; height=&quot;400&quot; fill=&quot;#a9c8dc&quot;/></svg>'">
@@ -337,9 +373,10 @@
           <div class="pad">
             <h3>Digital solutions</h3>
             <p>Software and tools that streamline trade, logistics and business operations — built around your workflow.</p>
+            <span class="more">Learn more</span>
           </div>
         </div>
-        <div class="prod">
+        <div class="prod" data-details="Petroleum products &amp; fuels trading|Sourced responsibly from trusted suppliers|Delivered on contract &amp; specification|Flexible volumes &amp; delivery schedules|Transparent pricing &amp; documentation">
           <div class="ph">
             <span class="tag logo-tag"><img src="logos/petroleum-logo.png" alt="Petroleum brand logo" onerror="this.style.display='none'"></span>
             <img src="https://images.unsplash.com/photo-1504052434569-70ad5836ab65?auto=format&fit=crop&w=900&q=80" alt="Crude oil and petroleum industry" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 700 400&quot;><rect width=&quot;700&quot; height=&quot;400&quot; fill=&quot;#8ea8ba&quot;/></svg>'">
@@ -347,9 +384,10 @@
           <div class="pad">
             <h3>Petroleum trading</h3>
             <p>Trading of petroleum products and fuels, sourced responsibly and delivered on contract.</p>
+            <span class="more">Learn more</span>
           </div>
         </div>
-        <div class="prod">
+        <div class="prod" data-details="Residential &amp; commercial property|Purchase, lease &amp; management|Clear, transparent terms throughout|Site sourcing &amp; due diligence|Tailored to your requirements">
           <div class="ph">
             <span class="tag logo-tag"><img src="logos/real-estate-logo.png" alt="Real estate brand logo" onerror="this.style.display='none'"></span>
             <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=900&q=80" alt="Modern real estate building" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 700 400&quot;><rect width=&quot;700&quot; height=&quot;400&quot; fill=&quot;#7a9cb0&quot;/></svg>'">
@@ -357,9 +395,10 @@
           <div class="pad">
             <h3>Real estate</h3>
             <p>Sourcing and managing property with clear terms — residential and commercial, from purchase to lease.</p>
+            <span class="more">Learn more</span>
           </div>
         </div>
-        <div class="prod">
+        <div class="prod" data-details="High-pressure down-the-hole impactors|DTH bits, drill pipes &amp; drilling tools|For mining, water-well &amp; geothermal projects|Available for rent or sale worldwide|Supported by Hunan New Diamond engineering">
           <div class="ph">
             <span class="tag logo-tag"><img src="src/OIP-2338479440-removebg-preview.png" alt="Hunan New Diamond logo" onerror="this.style.display='none'"></span>
             <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=900&q=80" alt="Rock drilling machinery at a mine site" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 700 400&quot;><rect width=&quot;700&quot; height=&quot;400&quot; fill=&quot;#9fb2be&quot;/></svg>'">
@@ -367,9 +406,10 @@
           <div class="pad">
             <h3>Rock drilling machinery &amp; accessories</h3>
             <p>High-pressure down-the-hole impactors, DTH bits, drill pipes and rock drilling tools from Hunan New Diamond — available for rent or sale worldwide, and widely used in mining and water-well, geothermal and municipal projects.</p>
+            <span class="more">Learn more</span>
           </div>
         </div>
-        <div class="prod">
+        <div class="prod" data-details="General trading &amp; representation services|Act as your trusted local representative|Manage sourcing, logistics &amp; paperwork|Single point of contact for your deals|Sized to your product or market">
           <div class="ph">
             <span class="tag logo-tag"><img src="logos/baraton-logo.png" alt="Baraton Trade logo" onerror="this.style.display='none'"></span>
             <img src="https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=900&q=80" alt="General trade and representation" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 700 400&quot;><rect width=&quot;700&quot; height=&quot;400&quot; fill=&quot;#6d8ba0&quot;/></svg>'">
@@ -377,6 +417,7 @@
           <div class="pad">
             <h3>General trading &amp; representation</h3>
             <p>We act as your trusted partner and local representative, managing general trade and representation.</p>
+            <span class="more">Learn more</span>
           </div>
         </div>
       </div>
@@ -551,6 +592,30 @@
     </div>
   </footer>
 
+  <!-- ================= Product detail modal ================= -->
+  <div class="modal close" id="productModal" aria-hidden="true">
+    <div class="backdrop" data-close></div>
+    <div class="dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="dlg-close" data-close aria-label="Close">&times;</button>
+      <div class="dlg-img">
+        <span class="tag" id="modalTag"></span>
+        <img id="modalImg" src="" alt="">
+      </div>
+      <div class="dlg-body">
+        <h3 id="modalTitle"></h3>
+        <p class="dlg-lede" id="modalLede"></p>
+        <div class="dlg-details">
+          <b>At a glance</b>
+          <ul id="modalDetails"></ul>
+        </div>
+        <div class="dlg-actions">
+          <a href="#contact" class="btn btn-primary" data-close-link>Enquire about this</a>
+          <button type="button" class="btn btn-ghost" data-close>Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script>
     (function(){
       var y = document.getElementById('year');
@@ -605,6 +670,65 @@
             btn.textContent = orig;
             btn.disabled = false;
           }, 3500);
+        });
+      }
+
+      // -------- Product detail modal --------
+      var modal = document.getElementById('productModal');
+      var cards = document.querySelectorAll('.prod');
+      function openModal(card){
+        if (!modal) return;
+        function q(s){ return card.querySelector(s); }
+        var img   = q('.ph img');
+        var tag   = q('.tag');
+        var title = q('h3');
+        var lede  = q('p');
+        var detail = card.getAttribute('data-details');
+
+        document.getElementById('modalImg').src = (img && img.currentSrc) ? img.currentSrc : (img ? img.src : '');
+        document.getElementById('modalImg').alt = (img ? img.alt : '');
+        document.getElementById('modalTag').textContent = tag ? tag.textContent : '';
+        document.getElementById('modalTitle').textContent = title ? title.textContent : '';
+        document.getElementById('modalLede').textContent = lede ? lede.textContent : '';
+
+        var list = document.getElementById('modalDetails');
+        list.innerHTML = '';
+        if (detail){
+          detail.split('|').forEach(function(item){
+            var li = document.createElement('li');
+            li.textContent = item;
+            list.appendChild(li);
+          });
+        }
+
+        modal.classList.remove('close');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('modal-open');
+      }
+      function closeModal(){
+        if (!modal) return;
+        modal.classList.add('close');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('modal-open');
+      }
+      cards.forEach(function(card){
+        card.setAttribute('role','button');
+        card.setAttribute('tabindex','0');
+        card.addEventListener('click', function(){ openModal(card); });
+        card.addEventListener('keydown', function(e){
+          if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); openModal(card); }
+        });
+      });
+      if (modal){
+        modal.querySelectorAll('[data-close]').forEach(function(el){
+          el.addEventListener('click', closeModal);
+        });
+        var enquire = modal.querySelector('[data-close-link]');
+        if (enquire){
+          enquire.addEventListener('click', closeModal);
+        }
+        document.addEventListener('keydown', function(e){
+          if (e.key === 'Escape') closeModal();
         });
       }
     })();
