@@ -187,20 +187,28 @@
 
   /* ---------- Approach ---------- */
   .approach{background:var(--bg-deep);}
-  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
   .step{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:24px;}
   .step .n{font-size:1.9rem;font-weight:700;color:var(--accent);line-height:1;}
   .step h4{font-size:1.08rem;margin:16px 0 8px;}
   .step p{font-size:.9rem;color:var(--muted);}
-
+  
+  /* ---------Mission------------ */
+    .wrapper {
+    display: flex;
+    justify-content: left;
+  }
+  ul {
+    text-align: left;
+  }
   /* ---------- Markets ---------- */
-  .markets{background:var(--surface);}
+  /* .markets{background:var(--surface);}
   .mkt-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
   .mkt{display:flex;gap:16px;align-items:flex-start;padding:20px;border:1px solid var(--line);
     border-radius:var(--radius);background:var(--bg-deep);}
   .mkt .dot{flex:none;width:12px;height:12px;border-radius:50%;background:var(--accent);margin-top:6px;}
   .mkt h3{font-size:1.06rem;margin-bottom:4px;}
-  .mkt p{color:var(--muted);font-size:.92rem;}
+  .mkt p{color:var(--muted);font-size:.92rem;} */
 
   /* ---------- About ---------- */
   .about{background:var(--dark);color:var(--muted-2);}
@@ -308,8 +316,8 @@
       <nav class="main-nav" id="mainNav">
         <ul>
           <li><a href="#products">Products</a></li>
-          <li><a href="#how">How we work</a></li>
-          <li><a href="#markets">Markets</a></li>
+          <li><a href="#mission">Our mission</a></li>
+          <!-- <li><a href="#markets">Markets</a></li> -->
           <li><a href="#about">About</a></li>
           <li><a href="#contact" class="nav-cta">Get in touch</a></li>
         </ul>
@@ -330,7 +338,7 @@
       <p class="lede">Baraton Trade is a private import and export firm that handles the details so you don't have to. Whether you're sourcing, supplying or shipping, we manage the contracts, the inspections and the delivery — and keep you informed throughout.</p>
       <div class="actions">
         <a href="#contact" class="btn btn-primary">Start a conversation</a>
-        <a href="#how" class="btn btn-ghost">How we work</a>
+        <a href="#mission" class="btn btn-ghost">Our mission</a>
       </div>
       <p class="hero-note">From a single shipment to a steady supply line — we size our service to your needs.</p>
     </div>
@@ -458,41 +466,62 @@
     </div>
   </section>
 
-  <!-- ================= How we work ================= -->
-  <section class="approach" id="how">
+  <!-- ================= Our mission ================= -->
+  <section class="approach" id="mission">
     <div class="container">
       <div class="sec-head">
-        <p class="eyebrow">How we work</p>
-        <h2>A simple path, with no surprises.</h2>
-        <p>We keep our process clear and friendly, and we're happy to talk you through each stage along the way.</p>
+        <p class="eyebrow">Our mission</p>
+        <!-- <h2>A simple path, with no surprises.</h2> -->
+        <p style="font-weight: bold;">Here, we believe in rising together. Through win-win collaboration, bold futuristic thinking, and a peaceful spirit embedded in our DNA. We create lasting value for our People, Partners, Shareholders, and The Global Community</p>
       </div>
       <div class="steps">
         <div class="step">
           <div class="n">1</div>
-          <h4>Let's talk</h4>
-          <p>Tell us about your goods and what you need. We'll confirm what's possible, in plain terms.</p>
+          <h4>ATTITUDE</h4>
+          <div class="wrapper">
+              <ul>
+                <li>Creative spirit</li>
+                <li>Striving for Change</li>
+                <li>Generous</li>
+                <li>Committed</li>
+              </ul>
+            </div>
         </div>
         <div class="step">
           <div class="n">2</div>
-          <h4>Agree terms</h4>
-          <p>We put everything in writing — specs, quantities, price, delivery and timelines.</p>
+          <h4>TEAMWORK</h4>
+          <div class="wrapper">
+              <ul>
+                <li>Survival of the fittest</li>
+                <li>Optimizing performances</li>
+                <li>Optimizing Grouping</li>
+                <li>Customers First</li>
+              </ul>
+            </div>
         </div>
         <div class="step">
           <div class="n">3</div>
-          <h4>We handle it</h4>
-          <p>Inspection, shipping and insurance arranged, with updates as your goods move.</p>
+          <h4>PERSONALITY</h4>
+         <div class="wrapper">
+              <ul>
+                <li>Responsible</li>
+                <li>Sincere</li>
+                <li>Honest</li>
+                <li>Integrity</li>
+              </ul>
+            </div>
         </div>
-        <div class="step">
+        <!-- <div class="step">
           <div class="n">4</div>
           <h4>Done, smoothly</h4>
           <p>Documentation completed and payment settled. If anything's unclear, we're right there.</p>
-        </div>
+        </div> -->
       </div>
     </div>
   </section>
 
   <!-- ================= Markets ================= -->
-  <section class="markets" id="markets">
+  <!-- <section class="markets" id="markets">
     <div class="container">
       <div class="sec-head">
         <p class="eyebrow">Markets</p>
@@ -506,7 +535,7 @@
         <div class="mkt"><span class="dot"></span><div><h3>Consumer goods</h3><p>Processed and packaged goods for distribution.</p></div></div>
       </div>
     </div>
-  </section>
+  </section> -->
 
   <!-- ================= About ================= -->
   <section class="about" id="about">
@@ -582,8 +611,8 @@
           <h4>Explore</h4>
           <ul>
             <li><a href="#products">Products</a></li>
-            <li><a href="#how">How we work</a></li>
-            <li><a href="#markets">Markets</a></li>
+            <li><a href="#mission">Our mission</a></li>
+            <!-- <li><a href="#markets">Markets</a></li> -->
             <li><a href="#about">About us</a></li>
           </ul>
         </div>
