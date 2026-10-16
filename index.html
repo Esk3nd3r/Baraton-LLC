@@ -123,9 +123,11 @@
   /* ---------- Marquee (companies we work with) ---------- */
   .marquee{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;padding:22px 0;}
   .marquee .m-head{text-align:center;font-size:.74rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:22px;}
-  .marquee-track{display:flex;gap:72px;white-space:nowrap;width:max-content;will-change:transform;animation:marquee 30s linear infinite;}
-  .marquee-track span{font-size:1.06rem;font-weight:600;color:var(--muted);letter-spacing:.03em;display:flex;align-items:center;}
-  .marquee-track span::after{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent);margin-left:72px;flex:none;}
+  .marquee-track{display:flex;white-space:nowrap;width:max-content;will-change:transform;animation:marquee 30s linear infinite;}
+  .marquee-track span{font-size:1.06rem;font-weight:600;color:var(--muted);letter-spacing:.03em;
+    display:flex;align-items:center;margin-right:84px;}
+  .marquee-track span::after{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent);
+    margin-left:39px;flex:none;}
   .marquee:hover .marquee-track{animation-play-state:paused;}
   @keyframes marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
   @media(prefers-reduced-motion:reduce){.marquee-track{animation:none;}}
@@ -335,12 +337,12 @@
     <div class="inner">
       <p class="eyebrow">International trade, made simple</p>
       <h1>We make cross-border trade <span class="len">easier</span> for you.</h1>
-      <p class="lede">Baraton Trade is a private import and export firm that handles the details so you don't have to. Whether you're sourcing, supplying or shipping, we manage the contracts, the inspections and the delivery — and keep you informed throughout.</p>
+      <p class="lede">Baraton Trade is a private firm that handles the details so you don't have to. Specializes in importing and distributing construction machinery, drilling equipment, heavy machinery spare parts, and industrial products. Based in Addis Ababa, the company was founded under the leadership of Aboma Taye and has grown to become a supplier of equipment for Ethiopia’s construction and infrastructure sectors.</p>
       <div class="actions">
         <a href="#contact" class="btn btn-primary">Start a conversation</a>
         <a href="#mission" class="btn btn-ghost">Our mission</a>
       </div>
-      <p class="hero-note">From a single shipment to a steady supply line — we size our service to your needs.</p>
+      <!-- <p class="hero-note"></p> -->
     </div>
     <button class="nav-arrow prev" type="button" aria-label="Previous slide">&lsaquo;</button>
     <button class="nav-arrow next" type="button" aria-label="Next slide">&rsaquo;</button>
@@ -359,7 +361,7 @@
       <div class="sec-head">
         <p class="eyebrow">Products</p>
         <h2>What we supply.</h2>
-        <p>Machinery, energy, technology and property — sourced, serviced and delivered with the same attention to quality and follow-through.</p>
+        <!-- <p>Machinery, energy, technology and property — sourced, serviced and delivered with the same attention to quality and follow-through.</p> -->
       </div>
       <div class="prod-grid">
         <div class="prod" data-details="Daily, weekly &amp; monthly hire terms|From ZEGA — reputable drill rigs &amp; air compressors|Fully serviced equipment with on-site support|Flexible plans sized to your project|Rental and purchase both available">
@@ -454,15 +456,6 @@
       <span>Sterling Commodities</span>
       <span>Harbor Freight Lines</span>
       <span>Kelway Steelworks</span>
-      <span>Provenance Foods</span>
-      <span>Cornerstone Agri</span>
-      <span>Meridian Grain Co.</span>
-      <span>Northfields &amp; Sons</span>
-      <span>Alpine Metals</span>
-      <span>Sterling Commodities</span>
-      <span>Harbor Freight Lines</span>
-      <span>Kelway Steelworks</span>
-      <span>Provenance Foods</span>
     </div>
   </section>
 
@@ -470,7 +463,7 @@
   <section class="approach" id="mission">
     <div class="container">
       <div class="sec-head">
-        <p class="eyebrow">Our mission</p>
+        <p><h1>Our mission</h1></p>
         <!-- <h2>A simple path, with no surprises.</h2> -->
         <p style="font-weight: bold;">Here, we believe in rising together. Through win-win collaboration, bold futuristic thinking, and a peaceful spirit embedded in our DNA. We create lasting value for our People, Partners, Shareholders, and The Global Community</p>
       </div>
@@ -660,6 +653,14 @@
     (function(){
       var y = document.getElementById('year');
       if (y){ y.textContent = new Date().getFullYear(); }
+
+      // Marquee: duplicate the items once so the loop is seamless
+      // no matter how many names are added or removed.
+      var marqueeTrack = document.querySelector('.marquee-track');
+      if (marqueeTrack){
+        var original = marqueeTrack.innerHTML;
+        marqueeTrack.innerHTML = original + original;
+      }
 
       // Hero slideshow (crossfade + arrows)
       var slides = Array.prototype.slice.call(document.querySelectorAll('.hero .slides img'));
