@@ -462,8 +462,6 @@
       <span>Biya Petroleum</span>
       <span>Imperial Real Estate</span>
       <span>Present NFC Solutions</span>
-      <!-- <span>Harbor Freight Lines</span>
-      <span>Kelway Steelworks</span> -->
     </div>
   </section>
 
@@ -662,12 +660,20 @@
       var y = document.getElementById('year');
       if (y){ y.textContent = new Date().getFullYear(); }
 
-      // Marquee: duplicate the items once so the loop is seamless
-      // no matter how many names are added or removed.
+      // Marquee: build one "set" wide enough to fill the container, then
+      // duplicate the entire set once. Translating -50% then always lands
+      // exactly on the start of the 2nd set -> seamless, no gap, on any width.
       var marqueeTrack = document.querySelector('.marquee-track');
       if (marqueeTrack){
         var original = marqueeTrack.innerHTML;
-        marqueeTrack.innerHTML = original + original;
+        var need = (marqueeTrack.parentElement && marqueeTrack.parentElement.clientWidth) || window.innerWidth;
+        marqueeTrack.innerHTML = original;
+        var guard = 0;
+        while (marqueeTrack.scrollWidth < need && guard < 50){
+          marqueeTrack.innerHTML += original;
+          guard++;
+        }
+        marqueeTrack.innerHTML += marqueeTrack.innerHTML; // duplicate the whole set once
       }
 
       // Hero slideshow (crossfade + arrows)
